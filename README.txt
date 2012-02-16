@@ -1,4 +1,4 @@
-cubanker - Opensource Banking
+cubanker 0.0.1 - Opensource Banking
 =============================
 (c) 2003-2012 www.communitybanker.org
 

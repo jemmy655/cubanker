@@ -11,7 +11,7 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://cubanker.kicks-ass.org/";
+$config['base_url']	= "http://localhost/";
 
 /*
 |--------------------------------------------------------------------------

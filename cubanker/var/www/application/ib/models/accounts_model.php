@@ -19,5 +19,4 @@ class accounts_model extends Model {
 	}
 	
 }
-	
-?>
+

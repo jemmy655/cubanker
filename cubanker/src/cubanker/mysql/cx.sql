@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.1.49-1ubuntu8
+-- Server version	5.1.58-1ubuntu1
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,127 +21,962 @@
 CREATE DATABASE IF NOT EXISTS cx;
 USE cx;
 
-DROP TABLE IF EXISTS `cx`.`accounts`;
-CREATE TABLE  `cx`.`accounts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userid` int(11) NOT NULL,
-  `acc_number` varchar(16) NOT NULL,
-  `acc_name` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='user accounts';
-INSERT INTO `cx`.`accounts` (`id`,`userid`,`acc_number`,`acc_name`) VALUES 
- (1,2,'235634778','Test Account'),
- (2,2,'235625677','Savings'),
- (3,2,'234865695','Loan'),
- (4,1,'233445678','Savings');
+--
+-- Definition of table `cx`.`accesstype`
+--
 
-DROP TABLE IF EXISTS `cx`.`coder`;
-CREATE TABLE  `cx`.`coder` (
+DROP TABLE IF EXISTS `cx`.`accesstype`;
+CREATE TABLE  `cx`.`accesstype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) DEFAULT NULL,
-  `surname` varchar(40) DEFAULT NULL,
-  `photo` blob,
-  `description` varchar(40) DEFAULT NULL,
+  `accesstype` varchar(2) NOT NULL,
+  `description` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='details about coder';
-INSERT INTO `cx`.`coder` (`id`,`name`,`surname`,`photo`,`description`) VALUES 
- (1,'Peter','Parker',0xFFD8FFE000104A46494600010101004800480000FFFE00134372656174656420776974682047494D50FFDB00430001010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101FFDB00430101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101FFC00011080050005003012200021101031101FFC4001D0000020300030101000000000000000000070906080A0304050B01FFC4005010000004020408070A0A080701000000000304050601070011142102081315314151611624718191A1F00923253334354565B1F126444653545575C1D1E10A121722436485A5273656737495B4B5FFC400190101000301010000000000000000000000070506080403FFC40036110001020404030604040700000000000001112103040531000241510612610713718191F023B1C1D1141524A1172532354245E1FFDA000C03010002110311003F00CE531896518CCDF9DE0736F6E8CC29BCDAA34F670C9972F8030A27CC76874EADDB3478CC6502F0633343889F255B9557AFC009BA7937F368AA3F8F95C10BB7CD084C50A228DC5C0EBED55FB37522E2CD77301D8EE6FE3E675FDDF1ED0A177D1FB87BAF4451E1D17ED815B85F019758CCE9620429AB45E3F2C3923DA15F245D483301C42262173E69654A1681E00016A3667AF975D5B69EA33E5BE50E5B0C181453590CE0381002D512C4F3826F9C7FB7476D74D10F73D311397E61AA4279CC446E11BC9607F8384556F28864F5F83FEB4E9AE34A256788E04A41EFE38552C37B74505F5D52D84FE1CE128D588E2041096F9852E3AE11732315BC632600644E34E59BA324301688AAAA81658F6E9E7A7B2EAC5BE75CBBC33471E12BCF9F2830F68CB8005AACBECAB6F56E86D70B4BF0ECC1130D1ECA5721672E5F2165D50AA3772768502D33A499713C6132A28430156DBA30ED56B8FB4E3F881382383025106E4E83941F16523CC28C3442EC8A8C647F5137FCC08012CE50EBD405B16F1C61B0F98309EB79426E43454FE5FBFA52B01C53790D9A3DF74693C4F500D43032900ECA2FCC7D1BD9B7AA8DCB1DBC49CBAE5BDC0DB4B053DD08F5984A55000B2C4D55A0828C3F1E6DB45108E48E598D08613ECA2A3AB66F3D5FC5A0A11E4BEE4FF6D12A81C4702A3004EC05541CC18EDD3D9C06F18F074ED0670C946FE9D333B862C6CA479DB1CA64BD783B7F2E6EDBF4522EAAE07036111C861BEB8B28030E9472238E86AC7D2ED3C42AF466ADB5E9A1070C3F1A5C40FBE823F7FDBAE1CD56CD5481BD820F836BDDEBD14B1A7FE06FD1D7AB4C6AA2182A01DC03EB8342C48DB05A64890E063443C9FC956DDD1FB0536BAAAAE356EF753BE6432EA866C021C2A158C8DA0BE5FE2C7207FCE17F6E4A755985B26CF6968B9AADBFFE0A6D7774EAAA95CCCB90430FC5430AA6C208A8278E5600108791A779B8872D75EDAA90154F8D058EFAEC4786EDEA313347F833AA41B8218A17BAEDEC74BC241B7C0B2C1972FC68D2F7173D97E35C4EB4D8276EAE0AA7F33FF4CD94D83E29CCF2E972DD9886738A8A8EDC48CBD5F4C890D1D3C95531972C66C09342614B46BD8F2469C93199E40C6981B2C8E9CBDE410FFB08436DFB746961DB351F89C82B2612D63810CD4103379E5C000B52B291CBAB209DDA17461CB425E2C84234C49CB1202B8DBFC74671D1468D8D19D9D8481393E4167051D472B33683EFA61D7E635430582309658A8A17BFD90DB7F26A83B9196E45C20293304C588BFC01F211D5CD1EBDFA6884180F8C701EA370E1AF3D1F8425F2738F83E3A51E2398958D1C4EF09FA4FC2F9AEBAE8D51C8F899862438AF04F9807EDE4889C303803816A562DC42FF00C7AE34ABCED3246523081182AA382B74D996DAEBEA994DA94C542018E8411A215280003C6DEB8AD38C8176DB1C13E4DF0AE8C54518B9D2F901CE90B5ECF7EBE8AA997A984A8DB67CDA982D7CA143E82F030DB74113C0F91FCA4CE3DB6DF5D184A9CAF724C4585E7DBA19EF298C2DB8E188AE70C6CA50B7F2114FF49F3AE2174550A2C0C76E55F02DCD2E5D0D34B54208CEA6E1C4ECD43C0F5AD356138FE72B0FF708550BE11BEAD35D2C9C3725024E7C4BC0CC3F5E8815108441A8563F22D633ED06623D4A999A3C79223F2E174766B900F53F505311718C5A0714C7CF18EDAB6F5D07AF930206DE5E0FD54775FABE3B39E9234726A05D112C3500F8DD849E5FB47AFB550D7E0620882BC27AA8E72C38857AF66FD51A3AC16800741F4C65B2E49DC9C1F5AB94E0035C4261E54D02CE6DE4765B330A6EBAFDB7D29436DAEE8762AAC974F4759545427E5C091227CD1B2B9C543D237E8CEBD1BE31A31C63227C036188187F2399E62EFB0536EF76A869DBCD236742762418D1234E03E4F3CCBE7E0E4DAF3350E205A8DF06D46BCE2BC9C9FB515553D39634EE8574AF4DAF70B2F71F76F3FD913171A2E592CD549297AACD8A748E6232AEAA480E45CE847DCAC5BB9EF2CD509E32C82B0F0473440AA08070C250078BC3CF09C42FDBE14AA1EFA6B9580D76FBE100A06751881A46007CE0011C85AB8E439F4F3EDBF5447CE16FCAF7A4AE549E72915190E3643A954A3C08AE2511216C523B0219B54619C33B7AC2FD3B34DD42862E4F04F6FA225A8180F2A541F28F8D736A8C392825C51331E667E4E3C7072A1442D647BF503E6D8D65C2D4490A2C8CDC9CB4EE5A8E52066042108465BFAB2A1C1E11E4DA62C190941C05C52A5498F69C87D2B5DD5E8AFDD0D30A4717BC38717986CB47145405249388E0778FE43CBFA6AED0A1CD79F89EB98612818301048C001032011023652860E55BBEED90D94AA0A12ECC087C25426FC9829658991B3A51122B912A4D3497D3F37C7CE6A9F6D725392148C79C20AB2AAA8F4E97D7A698B2429C8104265CA8C8C159B6D7DE980633E59A397C3546B881A59079268F02E7880E010351326E1F69EE8D51DDBE8BDB1E09766224CA783CA6573A934FF11E6C8FA476FD5FCF4B42A486233E640A4C4722CBA2D8E338632E7956D46ED90E6BFF003BE81AC635F02381D410672B152CE2E66822069376CB0551EAAB9FA29ED45968F078868E013FDD804BB2051EFA2ED8A9F1C4CC01C2558240CA4D291C0055B70083BDB775C256754BB1098C35983AF4D7AE3DBEEA57898A8E3C1BCE312CFDE814358DB5F9BF5ECDDD146DAF66B93FD48713D31BBB57AB9E948E70239326CC7968085E0AB937FA3D4BDB768868E5A69C161F4B796311E0C8C0470C49632E7BD8B0CB4B96798BF7A0A6D5ECFBA8079EB2CDC0E84A149A7A3A52C9588174071ECAAC58E6F857CD5574B9B2790C4392965A6817FC3961EBD5C124DE8A769619E7030B26186369F1E055DBA74D20FBC3B1F5FF00989A8B07E0826E1109B844F2B01E4025F09D2454D4988C37225B3C476BB4ACBE01F08E61C72ACBB8D792D2548E271F4DF93E98ADE74DFAA9B07908EC8B6D78FB1D5040B255DA12ADDF1A27AE3B7AFEEA6625FB8A5CC4547FA33B25398E11B8D61C68E580433DC555B3C5BD373766EAFD6BBF4469A7670C9776131B33B813C54698CC9E203F7887962775452D6BAB6D0EB8FA9DDEFE0E632E5454702EF94AB04DDEDE0170CFD93D5A346835791CD3A49EA54960C15DDB451B9BE2E19995E9731128AA386E859412A08E70C6410CF66B3667FA855747743EEAA31255C58CBB7D13266D6DC8E8F8BC6DCE33FDBA23F7502CC99C861BE7024B70062953E4F8B9ECBDFA75EBA5E1C39B0CB11BC19C70AC0411580176407DB1BBB68852912B063C244765D5ED7D2DD34F2C314B57449048484D8F30161ABF803857EE1C5CDAEDF70907E59CA8A691C038600007E34513217DDF95D1BB568808148986E05234EC0C3C925C4F59C8810D55F9C4FEEED568BCDD3D66835D606544367AC1AC92946B1C0007B5714EDDB6F84EA26869ED9410DBE62D4DC38868EB0DD3D7C73923A8A7E724E3FEEBFAE976E05A677F59FC74C7FAF2A347F2D7AFA21C16F6B9C4F1E6A9527002E5CB5063CA08040014281AEDA788C5189AA6032F802881F36FEDEDA2E79E67328D276E4F257B71C9FF00814BD97D2F0CD43020831F2E187FEC5D7DDCBCDCDA6ED0BDA6D06208D276C32957C1C58EA20A5F8ECA31633761AA62EAD332A127E5789E2821A5930B6DFF0004937F0EBDB550B4E166085C80B110B8BE23F81CDDABE7D55508D8A2B7CB9C9212804103F1D2AE5BD7A3FD249B755747B69BE94671DBEE8E31E59A91F96722D3D31F8E9267F33AE3C471ED4D344396FF00204ECD9FE6654BA1EA0FB7A14899596F7E76D7EAFD31333D35DF41EE19556D744236BA5FA74381C3DB1944FC5DE77C9B384D3F3F0AC998CCF980F14A007B25A5B6DD5D4D52CC39C3EB55ADF4FA1E8928317EC77E4E4B69DAC4512D109E6CE485C63CC3442B8313865354B061860125F250C2C1C03F809518080E12398C28C10C7CE18014438E1472BF26A5873AA3B17951C8E0396F59583B9C0F1E1EBE33D1CDCB753615FA335DD371590EA171049BEBA17035EA74E2C4805A3C3C2A6EBC6BC1C27030E318C2318263CEA8ABB7635C219FD3962318462B708E0C9C594978F004B4C80546A34D742E02FB4C72C85527699184F48CE1A7CE821B292FCA000B65056C5412414386813FFB9DAB6DE3E69715D3C208AD9F21C2244844C2518846F857831FDE4BBB6C2BA2EF7E627660E1614993762CE4ABEFE46FB219EAFCF557A69B653658B9A2E2006B0021C11B07243043E0FEB023423A6185831861577C6AD15D708C2A8EAA133E313043731450724A62E9EDE75C0188F14516302CDE59C3855FB9850846B4EC28D71FDEC185575F08550A1F55383A34A03314A2E179B29621139AE10B0603A84562B343ED164EA1CB2BC4B2839B31197F35CAAAFCAE46C772A35298C72B9E59872BD05E44D3D1CD281FB0932E94000078596D62F8A7104EF5A2D2AE6EE9D74EFF00749A5DA87737E5BE28271E96A5446FD9CA449F9D202571AB33F22438489CEC6EEFCEB179A3EAF00668AFCC747298B8E2B0EE7163849489369A079BA8B298F129A2B479C4059525CAFB89F52FD9DB49B8A3E687378553D45E2E0CC91F00706523EBCAE9447F4ABD3C3318B04BE39E2B2336C9E9AFE80E44DE6F3876AE14ECE09A347810672AB30CE85D0020D935D6E9B6397B4DAD48CC092A2D3CAC8C8E5CB9866B920F290798A17637EA1AE95505C6CB9C895C2497EB841C6421E3EC35DAD37F90514FBB3652B74EF61885D92FC30197C9645AAE431555EA152AFB4610E7AA344E8C3990F8950E409D8C6701F6E2A03C5C71C88FE524FE80A29FE934B8EFE88D2FF99C7B11DFAC07637E6636C54671A9335C89E45C6DC85A92548E28A0A95EA49FE774CDBE9DFBE37C86EBE5F5C10E3FFFD9,'I am a competent PHP and CodeIgnitor dev');
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `cx`.`functions`;
-CREATE TABLE  `cx`.`functions` (
-  `function_id` int(11) NOT NULL AUTO_INCREMENT,
-  `function_name` varchar(25) DEFAULT '',
-  `function_description` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`function_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
-INSERT INTO `cx`.`functions` (`function_id`,`function_name`,`function_description`) VALUES 
- (1,'random_element()','Takes an array as input and returns a random element from it.'),
- (2,'set_cookie()','Sets a cookie containing the values you specify.'),
- (3,'mdate()','This function is identical to PHPs date() function, except that it lets you use MySQL style date codes, where each code letter is preceded with a percent sign: %Y %m %d etc.'),
- (4,'local_to_gmt()','Takes a Unix timestamp as input and returns it as GMT.'),
- (5,'gmt_to_local()','Takes a Unix timestamp (referenced to GMT) as input, and converts it to a localized timestamp based on the timezone and Daylight Saving time submitted.'),
- (6,'mysql_to_unix()','Takes a MySQL Timestamp as input and returns it as Unix.'),
- (7,'unix_to_human()','Takes a Unix timestamp as input and returns it in a human readable format'),
- (8,'human_to_unix()','Takes a \"human\" time as input and returns it as Unix.'),
- (9,'timespan()','Formats a unix timestamp so that is appears similar to this: 1 Year, 10 Months, 2 Weeks, 5 Days, 10 Hours, 16 Minutes'),
- (10,'days_in_month()','Returns the number of days in a given month/year. Takes leap years into account.'),
- (11,'timezone_menu()','Generates a pull-down menu of timezones'),
- (12,'directory_map(\'source dir','This function reads the directory path specified in the first parameter and builds an array representation of it and all its contained files.'),
- (13,'read_file(\'path\')','Returns the data contained in the file specified in the path.'),
- (14,'write_file(\'path\', $data)','Writes data to the file specified in the path. If the file does not exist the function will create it.'),
- (15,'delete_files(\'path\')','Deletes ALL files contained in the supplied path.'),
- (16,'heading()','Lets you create HTML &lt;h1&gt; tags. The first parameter will contain the data, the second the size of the heading.'),
- (17,'nbs()','Generates non-breaking spaces (&amp;nbsp;) based on the number you submit.'),
- (18,'br()','Generates line break tags (&lt;br /&gt;) based on the number you submit.'),
- (19,'word_limiter()','Truncates a string to the number of words specified.'),
- (20,'character_limiter()','Truncates a string to the number of characters specified. It maintains the integrity of words so the character count may be slightly more or less then what you specify.'),
- (21,'ascii_to_entities()','Converts ASCII values to character entities, including high ASCII and MS Word characters that can cause problems when used in a web page, so that they can be shown consistently regardless of browser settings or stored reliably in a database.'),
- (22,'entities_to_ascii()','This function does the opposite of the previous one; it turns character entities back into ASCII.'),
- (23,'word_censor()','Enables you to censor words within a text string. The first parameter will contain the original string. The second will contain an array of words which you disallow. The third (optional) parameter can contain a replacement value for the words.'),
- (24,'highlight_code()','Colorizes a string of code (PHP, HTML, etc.).'),
- (25,'highlight_phrase()','Will highlight a phrase within a text string. The first parameter will contain the original string, the second will contain the phrase you wish to highlight.'),
- (26,'word_wrap()','Wraps text at the specified character count while maintaining complete words.'),
- (27,'auto_typography()','Formats text so that it is semantically and typographically correct HTML.'),
- (28,'nl2br_except_pre()','Converts newlines to &lt;br /&gt; tags unless they appear within &lt;pre&gt; tags. This function is identical to the native PHP nl2br() function, except that it ignores &lt;pre&gt; tags.'),
- (29,'site_url()','Returns your site URL, as specified in your config file. The index.php file (or whatever you have set as your site index_page in your config file) will be added to the URL, as will any URI segments you pass to the function.'),
- (30,'base_url()','Returns your site base URL, as specified in your config file.'),
- (31,'index_page()','Returns your site \"index\" page, as specified in your config file.'),
- (32,'anchor()','Creates a standard HTML anchor link based on your local site URL'),
- (33,'mailto()','Creates a standard HTML email link.'),
- (34,'safe_mailto()','Identical to the above function except it writes an obfuscated version of the mailto tag using ordinal numbers written with JavaScript to help prevent the email address from being harvested by spam bots.'),
- (35,'auto_link()','Automatically turns URLs and email addresses contained in a string into links.'),
- (36,'url_title()','Takes a string as input and creates a human-friendly URL string. \nThis is useful if, for example, you have a blog in which you \'d like to use the title of your entries in the URL.'),
- (37,'prep_url()','This function will add http:// in the event it is missing from a URL.'),
- (38,'redirect()','Does a \"header redirect\" to the local URI specified. Just like other functions in this helper, this one is designed to redirect to a local URL within your site.'),
- (39,'xml_convert(\'string\')','Takes a string as input and converts the reserved XML characters to entities');
+--
+-- Dumping data for table `cx`.`accesstype`
+--
+INSERT INTO `cx`.`accesstype` (`id`,`accesstype`,`description`) VALUES 
+ (1,'sa','System Administration'),
+ (2,'cc','Customer Care'),
+ (3,'cb','Corporate Banking'),
+ (4,'bs','Branch System'),
+ (5,'ib','Internet Banking');
+
+--
+-- Definition of table `cx`.`account`
+--
+
+DROP TABLE IF EXISTS `cx`.`account`;
+CREATE TABLE  `cx`.`account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `number` varchar(45) NOT NULL,
+  `sortcode` int(11) DEFAULT NULL,
+  `accounttype` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `VATenabled` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_account_accountstatus1` (`status`),
+  KEY `fk_account_accountype1` (`accounttype`),
+  KEY `fk_account_bankbranch1` (`sortcode`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='client account';
+
+--
+-- Dumping data for table `cx`.`account`
+--
+INSERT INTO `cx`.`account` (`id`,`number`,`sortcode`,`accounttype`,`status`,`VATenabled`) VALUES 
+ (5,'04234567891',584000,1,2,0),
+ (6,'04123456789',584000,2,2,0);
+
+--
+-- Definition of table `cx`.`accountstatus`
+--
+
+DROP TABLE IF EXISTS `cx`.`accountstatus`;
+CREATE TABLE  `cx`.`accountstatus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`accountstatus`
+--
+INSERT INTO `cx`.`accountstatus` (`id`,`description`) VALUES 
+ (1,'inactive'),
+ (2,'active'),
+ (3,'dormant'),
+ (4,'closed');
+
+--
+-- Definition of table `cx`.`accountype`
+--
+
+DROP TABLE IF EXISTS `cx`.`accountype`;
+CREATE TABLE  `cx`.`accountype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`accountype`
+--
+INSERT INTO `cx`.`accountype` (`id`,`description`) VALUES 
+ (1,'Current Account'),
+ (2,'Corporate Account'),
+ (3,'Savings Account');
+
+--
+-- Definition of table `cx`.`address`
+--
+
+DROP TABLE IF EXISTS `cx`.`address`;
+CREATE TABLE  `cx`.`address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `line1` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
+  `line2` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
+  `line3` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
+  `addresstype` int(11) DEFAULT NULL,
+  `entityid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_address_addresstype1` (`addresstype`),
+  KEY `fk_address_entity1` (`entityid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cx`.`address`
+--
+INSERT INTO `cx`.`address` (`id`,`line1`,`line2`,`line3`,`addresstype`,`entityid`) VALUES 
+ (1,'peter.pan@neverland.co.za',NULL,NULL,1,1),
+ (2,'17 Faraway Tree','South Side','Treasure Island',3,NULL);
+
+--
+-- Definition of table `cx`.`addresstype`
+--
+
+DROP TABLE IF EXISTS `cx`.`addresstype`;
+CREATE TABLE  `cx`.`addresstype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`addresstype`
+--
+INSERT INTO `cx`.`addresstype` (`id`,`description`) VALUES 
+ (1,'email'),
+ (2,'work telephone'),
+ (3,'physical address'),
+ (4,'postal address'),
+ (5,'skype id');
+
+--
+-- Definition of table `cx`.`attribute`
+--
+
+DROP TABLE IF EXISTS `cx`.`attribute`;
+CREATE TABLE  `cx`.`attribute` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `entity_id` varchar(45) DEFAULT NULL,
+  `attribute` varchar(75) DEFAULT NULL,
+  `attributetype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_entityattributes_entity1` (`entity_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`attribute`
+--
+INSERT INTO `cx`.`attribute` (`id`,`entity_id`,`attribute`,`attributetype`) VALUES 
+ (1,'1','Peter',1),
+ (2,'1','Pan',2),
+ (3,'1','6601017867001',3),
+ (4,'2','Pan Industries (Pty) Ltd',6);
+
+--
+-- Definition of table `cx`.`attributetype`
+--
+
+DROP TABLE IF EXISTS `cx`.`attributetype`;
+CREATE TABLE  `cx`.`attributetype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_attributetype_attribute1` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`attributetype`
+--
+INSERT INTO `cx`.`attributetype` (`id`,`description`) VALUES 
+ (1,'First Name'),
+ (2,'Surname'),
+ (3,'National ID'),
+ (4,'Passport Number'),
+ (5,'Birthday'),
+ (6,'Full Name'),
+ (7,'Gender');
+
+--
+-- Definition of table `cx`.`bankbranch`
+--
+
+DROP TABLE IF EXISTS `cx`.`bankbranch`;
+CREATE TABLE  `cx`.`bankbranch` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bankentity` int(11) DEFAULT NULL,
+  `sortcode` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `contactentity` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_bankbranch_entity1` (`bankentity`),
+  KEY `fk_bankbranch_entity2` (`contactentity`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`bankbranch`
+--
+
+--
+-- Definition of table `cx`.`batch`
+--
+
+DROP TABLE IF EXISTS `cx`.`batch`;
+CREATE TABLE  `cx`.`batch` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openedon` datetime DEFAULT NULL,
+  `closedon` datetime DEFAULT NULL,
+  `userid` varchar(20) DEFAULT NULL,
+  `total` decimal(10,0) DEFAULT NULL,
+  `postedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`batch`
+--
+
+--
+-- Definition of table `cx`.`batchhistory`
+--
+
+DROP TABLE IF EXISTS `cx`.`batchhistory`;
+CREATE TABLE  `cx`.`batchhistory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openedon` datetime DEFAULT NULL,
+  `closedon` datetime DEFAULT NULL,
+  `userid` varchar(20) DEFAULT NULL,
+  `total` decimal(10,0) DEFAULT NULL,
+  `postedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`batchhistory`
+--
+
+--
+-- Definition of table `cx`.`chargefrequency`
+--
+
+DROP TABLE IF EXISTS `cx`.`chargefrequency`;
+CREATE TABLE  `cx`.`chargefrequency` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`chargefrequency`
+--
+
+--
+-- Definition of table `cx`.`chargemethod`
+--
+
+DROP TABLE IF EXISTS `cx`.`chargemethod`;
+CREATE TABLE  `cx`.`chargemethod` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  `min` decimal(10,0) DEFAULT NULL,
+  `max` decimal(10,0) DEFAULT NULL,
+  `default` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`chargemethod`
+--
+
+--
+-- Definition of table `cx`.`chargetier`
+--
+
+DROP TABLE IF EXISTS `cx`.`chargetier`;
+CREATE TABLE  `cx`.`chargetier` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `min` decimal(10,0) DEFAULT NULL,
+  `max` decimal(10,0) DEFAULT NULL,
+  `fixedcharge` decimal(10,0) DEFAULT NULL,
+  `percentage` decimal(10,0) DEFAULT NULL,
+  `chargemethodid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_chargetier_chargemethod1` (`chargemethodid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`chargetier`
+--
+
+--
+-- Definition of table `cx`.`document`
+--
+
+DROP TABLE IF EXISTS `cx`.`document`;
+CREATE TABLE  `cx`.`document` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `savedbyuserid` varchar(45) DEFAULT NULL,
+  `location` varchar(145) DEFAULT NULL,
+  `attached` blob,
+  `documenttype` int(11) DEFAULT NULL,
+  `tags` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_document_documenttype1` (`documenttype`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`document`
+--
+
+--
+-- Definition of table `cx`.`documenttype`
+--
+
+DROP TABLE IF EXISTS `cx`.`documenttype`;
+CREATE TABLE  `cx`.`documenttype` (
+  `id` int(11) NOT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`documenttype`
+--
+
+--
+-- Definition of table `cx`.`entity`
+--
+
+DROP TABLE IF EXISTS `cx`.`entity`;
+CREATE TABLE  `cx`.`entity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `entitytype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_entity_entitytype1` (`entitytype`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`entity`
+--
+INSERT INTO `cx`.`entity` (`id`,`entitytype`) VALUES 
+ (1,1),
+ (2,2);
+
+--
+-- Definition of table `cx`.`entityaccount`
+--
+
+DROP TABLE IF EXISTS `cx`.`entityaccount`;
+CREATE TABLE  `cx`.`entityaccount` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `entityid` int(11) DEFAULT NULL,
+  `openedon` datetime DEFAULT NULL,
+  `accountid` int(11) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_entityaccount_entity1` (`entityid`),
+  KEY `fk_entityaccount_account1` (`accountid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`entityaccount`
+--
+INSERT INTO `cx`.`entityaccount` (`id`,`entityid`,`openedon`,`accountid`,`name`) VALUES 
+ (1,1,'2009-07-21 00:00:00',5,'Peter\'s Transactions'),
+ (2,2,'2009-01-01 00:00:00',6,'Pan\'s Clearing Account');
+
+--
+-- Definition of table `cx`.`entitygroup`
+--
+
+DROP TABLE IF EXISTS `cx`.`entitygroup`;
+CREATE TABLE  `cx`.`entitygroup` (
+  `id` int(11) NOT NULL,
+  `groupname` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`entitygroup`
+--
+
+--
+-- Definition of table `cx`.`entitygroupcharged`
+--
+
+DROP TABLE IF EXISTS `cx`.`entitygroupcharged`;
+CREATE TABLE  `cx`.`entitygroupcharged` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `entitygroupid` int(11) DEFAULT NULL,
+  `chargemethodid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_entitycharge_chargemethod1` (`chargemethodid`),
+  KEY `fk_entitygroupcharged_entitygroup1` (`entitygroupid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`entitygroupcharged`
+--
+
+--
+-- Definition of table `cx`.`entitygrouping`
+--
+
+DROP TABLE IF EXISTS `cx`.`entitygrouping`;
+CREATE TABLE  `cx`.`entitygrouping` (
+  `id` int(11) NOT NULL,
+  `entityid` int(11) DEFAULT NULL,
+  `groupid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_entitygrouping_entitygroup1` (`groupid`),
+  KEY `fk_entitygrouping_entity1` (`entityid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`entitygrouping`
+--
+
+--
+-- Definition of table `cx`.`entitytype`
+--
+
+DROP TABLE IF EXISTS `cx`.`entitytype`;
+CREATE TABLE  `cx`.`entitytype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`entitytype`
+--
+INSERT INTO `cx`.`entitytype` (`id`,`description`) VALUES 
+ (1,'Person (National)'),
+ (2,'Private Company'),
+ (3,'Closed Corporation'),
+ (4,'Public Company (Listed)'),
+ (5,'Public Company (Unlisted)'),
+ (6,'Trust'),
+ (7,'Partnership'),
+ (8,'Persona (Foreigner)');
+
+--
+-- Definition of table `cx`.`feesweeping`
+--
+
+DROP TABLE IF EXISTS `cx`.`feesweeping`;
+CREATE TABLE  `cx`.`feesweeping` (
+  `id` int(11) NOT NULL,
+  `entityaccountid` varchar(45) DEFAULT NULL,
+  `sweeptoentityaccountid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`feesweeping`
+--
+
+--
+-- Definition of table `cx`.`ficadocument`
+--
+
+DROP TABLE IF EXISTS `cx`.`ficadocument`;
+CREATE TABLE  `cx`.`ficadocument` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kycid` int(11) DEFAULT NULL,
+  `documentid` int(11) DEFAULT NULL,
+  `verified` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_ficadocument_document1` (`documentid`),
+  KEY `fk_ficadocument_kyc1` (`kycid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`ficadocument`
+--
+
+--
+-- Definition of table `cx`.`ficatype`
+--
+
+DROP TABLE IF EXISTS `cx`.`ficatype`;
+CREATE TABLE  `cx`.`ficatype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`ficatype`
+--
+
+--
+-- Definition of table `cx`.`function`
+--
+
+DROP TABLE IF EXISTS `cx`.`function`;
+CREATE TABLE  `cx`.`function` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `display_name` varchar(25) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `uri` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`function`
+--
+INSERT INTO `cx`.`function` (`id`,`display_name`,`description`,`uri`) VALUES 
+ (1,'Change Password','Change Password','#'),
+ (2,'Accounts','View Accounts','accounts'),
+ (3,'Person Manitenance','Person Maintenance','person'),
+ (4,'Beneficiary Payments','Make Beneficiary Payments','#'),
+ (5,'Project Items','Project Items','main'),
+ (46,'Secure eMail','Secure Email','#');
+
+--
+-- Definition of table `cx`.`incomeallocation`
+--
+
+DROP TABLE IF EXISTS `cx`.`incomeallocation`;
+CREATE TABLE  `cx`.`incomeallocation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chargemethodid` int(11) DEFAULT NULL,
+  `entityaccountid` int(11) DEFAULT NULL,
+  `fixedallocation` decimal(10,0) DEFAULT NULL,
+  `percentageallocation` decimal(10,0) DEFAULT NULL,
+  `transactioncode` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_chargeallocation_chargemethod1` (`chargemethodid`),
+  KEY `fk_chargeallocation_transactioncode1` (`transactioncode`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`incomeallocation`
+--
+
+--
+-- Definition of table `cx`.`kyc`
+--
+
+DROP TABLE IF EXISTS `cx`.`kyc`;
+CREATE TABLE  `cx`.`kyc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `entityid` int(11) DEFAULT NULL,
+  `ficatype` varchar(45) DEFAULT NULL,
+  `ficaapproved` datetime DEFAULT NULL,
+  `lastupdatedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_kyc_ficatype1` (`ficatype`),
+  KEY `fk_kyc_entity1` (`entityid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`kyc`
+--
+
+--
+-- Definition of table `cx`.`periodiccharge`
+--
+
+DROP TABLE IF EXISTS `cx`.`periodiccharge`;
+CREATE TABLE  `cx`.`periodiccharge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chargemethodapplied` varchar(45) DEFAULT NULL,
+  `chargefrequencyid` int(11) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_periodiccharge_frequencytype1` (`chargefrequencyid`),
+  KEY `fk_periodiccharge_chargemethod1` (`chargemethodapplied`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`periodiccharge`
+--
+
+--
+-- Definition of table `cx`.`profile`
+--
+
+DROP TABLE IF EXISTS `cx`.`profile`;
+CREATE TABLE  `cx`.`profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `entityid` int(11) NOT NULL,
+  `userid` varchar(20) NOT NULL,
+  `passwordhash` varchar(20) NOT NULL,
+  `passwordexpireson` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_profile_entity1` (`entityid`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`profile`
+--
+INSERT INTO `cx`.`profile` (`id`,`entityid`,`userid`,`passwordhash`,`passwordexpireson`) VALUES 
+ (4,1,'demo','password','2011-09-17'),
+ (5,2,'peter','loveswendy','2012-01-01');
+
+--
+-- Definition of table `cx`.`profileaccess`
+--
+
+DROP TABLE IF EXISTS `cx`.`profileaccess`;
+CREATE TABLE  `cx`.`profileaccess` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `profileid` int(11) NOT NULL,
+  `accesstype` varchar(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`profileaccess`
+--
+INSERT INTO `cx`.`profileaccess` (`id`,`profileid`,`accesstype`) VALUES 
+ (1,5,'bs'),
+ (2,4,'bs'),
+ (3,4,'cb'),
+ (4,4,'ib');
+
+--
+-- Definition of table `cx`.`profileaccount`
+--
+
+DROP TABLE IF EXISTS `cx`.`profileaccount`;
+CREATE TABLE  `cx`.`profileaccount` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `profileid` varchar(45) DEFAULT NULL,
+  `entityaccountid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_profileaccount_profile1` (`profileid`),
+  KEY `fk_profileaccount_entityaccount1` (`entityaccountid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`profileaccount`
+--
+INSERT INTO `cx`.`profileaccount` (`id`,`profileid`,`entityaccountid`) VALUES 
+ (1,'4','1'),
+ (2,'5','1'),
+ (3,'5','2');
+
+--
+-- Definition of table `cx`.`profilebeneficiary`
+--
+
+DROP TABLE IF EXISTS `cx`.`profilebeneficiary`;
+CREATE TABLE  `cx`.`profilebeneficiary` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `profileid` int(11) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `accountname` varchar(45) DEFAULT NULL,
+  `sortcode` varchar(45) DEFAULT NULL,
+  `accountnumber` varchar(45) DEFAULT NULL,
+  `lastpaiddate` varchar(45) DEFAULT NULL,
+  `lastpaidamount` varchar(45) DEFAULT NULL,
+  `notificationaddress1` varchar(45) DEFAULT NULL,
+  `notificationaddress2` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_beneficiary_profile1` (`profileid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`profilebeneficiary`
+--
+
+--
+-- Definition of table `cx`.`profilerole`
+--
+
+DROP TABLE IF EXISTS `cx`.`profilerole`;
+CREATE TABLE  `cx`.`profilerole` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `profileid` int(11) NOT NULL,
+  `roleid` int(11) NOT NULL,
+  `accesstype` varchar(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`profilerole`
+--
+INSERT INTO `cx`.`profilerole` (`id`,`profileid`,`roleid`,`accesstype`) VALUES 
+ (1,5,2,'ib'),
+ (2,4,2,'ib'),
+ (3,4,1,'bs'),
+ (4,5,3,'ib');
+
+--
+-- Definition of table `cx`.`profilescheduledpayments`
+--
+
+DROP TABLE IF EXISTS `cx`.`profilescheduledpayments`;
+CREATE TABLE  `cx`.`profilescheduledpayments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `profileid` varchar(45) DEFAULT NULL,
+  `fromprofileaccount` int(11) DEFAULT NULL,
+  `myreference` varchar(45) DEFAULT NULL,
+  `toprofilebeneficiary` int(11) DEFAULT NULL,
+  `theirreference` varchar(45) DEFAULT NULL,
+  `amount` decimal(10,0) DEFAULT NULL,
+  `dueon` datetime DEFAULT NULL,
+  `paymentnumber` int(11) DEFAULT NULL,
+  `totalpayments` int(11) DEFAULT NULL,
+  `paymentfrequency` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_profilescheduledpayments_profile1` (`profileid`),
+  KEY `fk_profilescheduledpayments_profileaccount1` (`fromprofileaccount`),
+  KEY `fk_profilescheduledpayments_profilebeneficiary1` (`toprofilebeneficiary`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`profilescheduledpayments`
+--
+
+--
+-- Definition of table `cx`.`project`
+--
 
 DROP TABLE IF EXISTS `cx`.`project`;
 CREATE TABLE  `cx`.`project` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `item` varchar(180) DEFAULT NULL,
-  `completedon` date DEFAULT NULL,
-  `notes` text,
+  `id` int(11) NOT NULL DEFAULT '0',
+  `item` varchar(45) DEFAULT NULL,
+  `notes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COMMENT='Developers Table only';
-INSERT INTO `cx`.`project` (`id`,`item`,`completedon`,`notes`) VALUES 
- (1,'multi-language extends controller','0000-00-00','eg. MyLanguage extends MY_Controller\n\n- checks default language\n- checks users select of language (either use default or user selected)\n- appends appropriate language tag in views..\neg	default_view.php (en - English i18n code)\n	default_view_zu.php (zu - Zulu i18n code)\n(a) the _zu is post appended to the view name to select the Zulu View.\n(b) the controller will also perform string mapping for language sensitive data\n'),
- (2,'addding of a logger class','0000-00-00','a logger class is required that logs all activity at three different levels viz:\n- ERROR (location, override: [file] /email/both ) message with information\n- INFORMATION (location, overide ) message\n- DEBUG (location, overide) programmers message\n\nThe logger class must provide views for maihntaining the log table, vioew, archiving & truncation options \nA cron {script} must be able to be turned on/off from this logger_maint_view that automatically renames, moves & trucates logss\n'),
- (3,'https://  secure website configuration','0000-00-00','the configuration of the web server for SSL\n- a development mode which would uses a self issued certificate\n- the process of getting an installing a Thawte cerrtificate\n- updating of the BIG BOOK woth instructions of this configuration\n- any coding changes that are required to support this requirement\n'),
- (4,'user maintenance','0000-00-00','User Maintenanance must cater for:\n- User personal information (minimal\n * username, password, email\n- allocation of any number of Roles'),
- (5,'role-function-user security model','0000-00-00','THis must allow for the maintenance of Roles, Functions and Users.  The mapping of Functions to Roles and allowing Users access to a particular Role.\nA function will boild down to a controller path.\nRole-Function-User (RFU) must be implemented in the \nMY_Controller by adding to the Auth Class.\n\n'),
- (6,'one time password','0000-00-00','this is configured in user maintenance [x] enforce one time password (o) by SMS or (o) by email\n\nthis change will optionally show during login and login cannot proceed until teh correct OTP is entered.\nthe OTP is an 7 digit non-case sensitive HEX string\n\nThis must be built into MY_Controller login function'),
- (7,'password change',NULL,'a function that will allow a user to change his password.  this function belongs to the default user_role and is enabled or diasabled depending on a toggle in the user maintenance view ie [x] allow user to change password'),
- (8,'scafolding',NULL,'scafolding is a function which will allow a developer to specify a table and a function name and it will create the ddefault controller, model & view incorporating all the i18n, Auth aetc extendtions.  The following default functiosn are supported, display in grid, display in record view eg << < > >> etc , add new and delete.\nIt is intended specifically for static data form scafolding.\n');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`project`
+--
+INSERT INTO `cx`.`project` (`id`,`item`,`notes`) VALUES 
+ (0,'fix descurity model','get the login using the role model security'),
+ (1,'add a edit form for all static data','');
+
+--
+-- Definition of table `cx`.`relatedentity`
+--
+
+DROP TABLE IF EXISTS `cx`.`relatedentity`;
+CREATE TABLE  `cx`.`relatedentity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `relatedentity1` int(11) DEFAULT NULL,
+  `relatedentity2` int(11) DEFAULT NULL,
+  `relationshiptype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_relatedentity_relationshiptype1` (`relationshiptype`),
+  KEY `fk_relatedentity_entity1` (`relatedentity1`),
+  KEY `fk_relatedentity_entity2` (`relatedentity2`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`relatedentity`
+--
+INSERT INTO `cx`.`relatedentity` (`id`,`relatedentity1`,`relatedentity2`,`relationshiptype`) VALUES 
+ (1,1,2,1),
+ (2,1,2,2);
+
+--
+-- Definition of table `cx`.`relationshiptype`
+--
+
+DROP TABLE IF EXISTS `cx`.`relationshiptype`;
+CREATE TABLE  `cx`.`relationshiptype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`relationshiptype`
+--
+INSERT INTO `cx`.`relationshiptype` (`id`,`description`) VALUES 
+ (1,'Spouse of'),
+ (2,'Child of'),
+ (3,'Relation of'),
+ (4,'Director of'),
+ (5,'Employed by'),
+ (6,'Trustee of'),
+ (7,'Beneficiary of');
+
+--
+-- Definition of table `cx`.`role`
+--
 
 DROP TABLE IF EXISTS `cx`.`role`;
 CREATE TABLE  `cx`.`role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  `decription` varchar(240) DEFAULT NULL,
+  `description` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-INSERT INTO `cx`.`role` (`id`,`name`,`decription`) VALUES 
- (1,'Web Client','Default Role for all users of Internet Banking.'),
- (2,'Admin','Provides unrestricted access to all functions.');
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`role`
+--
+INSERT INTO `cx`.`role` (`id`,`description`) VALUES 
+ (1,'Administrator'),
+ (2,'Internet Banking Client'),
+ (3,'Restricted Internet Banking');
+
+--
+-- Definition of table `cx`.`rolefunction`
+--
 
 DROP TABLE IF EXISTS `cx`.`rolefunction`;
 CREATE TABLE  `cx`.`rolefunction` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `role_id` int(11) NOT NULL,
-  `function_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `roleid` int(11) NOT NULL,
+  `functionid` int(11) NOT NULL,
+  `allowdelete` tinyint(1) NOT NULL,
+  `allownew` tinyint(1) NOT NULL,
+  `allowedit` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_profilefunction_profile1` (`roleid`),
+  KEY `fk_profilefunction_functions1` (`functionid`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `cx`.`user`;
-CREATE TABLE  `cx`.`user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(80) NOT NULL,
-  `password` varchar(20) DEFAULT NULL,
+--
+-- Dumping data for table `cx`.`rolefunction`
+--
+INSERT INTO `cx`.`rolefunction` (`id`,`roleid`,`functionid`,`allowdelete`,`allownew`,`allowedit`) VALUES 
+ (1,1,3,0,1,1),
+ (2,2,2,0,0,0),
+ (3,1,5,1,1,1),
+ (6,2,5,0,0,0),
+ (7,2,46,0,0,0),
+ (8,3,46,0,0,0),
+ (9,3,2,0,0,0);
+
+--
+-- Definition of table `cx`.`tbl_person`
+--
+
+DROP TABLE IF EXISTS `cx`.`tbl_person`;
+CREATE TABLE  `cx`.`tbl_person` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `gender` char(1) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-INSERT INTO `cx`.`user` (`id`,`email`,`password`) VALUES 
- (1,'root','password'),
- (2,'demo','password');
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`tbl_person`
+--
+INSERT INTO `cx`.`tbl_person` (`id`,`name`,`gender`,`dob`) VALUES 
+ (12,'Marita','F','1966-09-10'),
+ (11,'Jacky Chan','M','2011-09-07'),
+ (10,'fgjk','F','2011-09-15'),
+ (8,'name3-3','F','2011-09-09'),
+ (9,'sdghsdggh','F','2011-09-01');
+
+--
+-- Definition of table `cx`.`transaction`
+--
+
+DROP TABLE IF EXISTS `cx`.`transaction`;
+CREATE TABLE  `cx`.`transaction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sequence` varchar(45) DEFAULT NULL,
+  `date` varchar(45) DEFAULT NULL,
+  `destinationaccountid` varchar(45) DEFAULT NULL,
+  `reference` varchar(45) DEFAULT NULL,
+  `originatingaccountid` varchar(45) DEFAULT NULL,
+  `transactioncode` varchar(45) DEFAULT NULL,
+  `amount` varchar(45) DEFAULT NULL,
+  `narrative` varchar(45) DEFAULT NULL,
+  `batchid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_transaction_batch1` (`batchid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`transaction`
+--
+
+--
+-- Definition of table `cx`.`transactioncharge`
+--
+
+DROP TABLE IF EXISTS `cx`.`transactioncharge`;
+CREATE TABLE  `cx`.`transactioncharge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chargedmethodapplied` varchar(45) DEFAULT NULL,
+  `transactioncodecharged` varchar(3) DEFAULT NULL COMMENT 'need wild cards etc so using the code & not the refered table column\n',
+  `originatingsortcode` varchar(45) DEFAULT NULL,
+  `originatingaccount` varchar(45) DEFAULT NULL,
+  `destinationsortcode` varchar(45) DEFAULT NULL,
+  `destinationaccount` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_transactioncharge_chargemethod1` (`chargedmethodapplied`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`transactioncharge`
+--
+
+--
+-- Definition of table `cx`.`transactioncode`
+--
+
+DROP TABLE IF EXISTS `cx`.`transactioncode`;
+CREATE TABLE  `cx`.`transactioncode` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `debitindicator` tinyint(1) DEFAULT NULL,
+  `code` varchar(3) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `nonfinancial` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`transactioncode`
+--
+
+--
+-- Definition of table `cx`.`transactionhistory`
+--
+
+DROP TABLE IF EXISTS `cx`.`transactionhistory`;
+CREATE TABLE  `cx`.`transactionhistory` (
+  `id` int(11) NOT NULL,
+  `sequence` varchar(45) DEFAULT NULL,
+  `date` varchar(45) DEFAULT NULL,
+  `destinationaccountid` varchar(45) DEFAULT NULL,
+  `reference` varchar(45) DEFAULT NULL,
+  `originatingaccountid` varchar(45) DEFAULT NULL,
+  `transactioncode` varchar(45) DEFAULT NULL,
+  `amount` varchar(45) DEFAULT NULL,
+  `narrative` varchar(45) DEFAULT NULL,
+  `batchid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_transactionhistory_batchhistory1` (`batchid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cx`.`transactionhistory`
+--
+
+--
+-- Definition of procedure `cx`.`sp_getfunctions`
+--
+
+DROP PROCEDURE IF EXISTS `cx`.`sp_getfunctions`;
+
+DELIMITER $$
+
+/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='' */ $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE  `cx`.`sp_getfunctions`( IN accesstype VARCHAR(2), IN pid INTEGER )
+BEGIN
+SELECT DISTINCT f.display_name, f.uri, r.allowdelete, r.allownew, r.allowedit FROM 
+rolefunction r JOIN function f  ON f.id = r.functionid JOIN profilerole pr ON pr.roleid = r.roleid 
+WHERE pr.profileid = pid and pr.accesstype = accesstype;
+END $$
+/*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
+
+DELIMITER ;
 
 
 

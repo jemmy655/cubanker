@@ -2,6 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php echo $css; ?>
+<link type="text/css" href="<?php echo base_url(); ?>css/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />	
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-ui-1.8.16.custom.min.js"></script>
+<script>
+	$(function() {
+		$( "#dob" ).datepicker({
+			showOn: "button",
+			buttonImage: "images/datepicker.gif",
+			dateFormat: 'dd-mm-yy',
+			buttonImageOnly: true });
+	});
+</script>
+<! -- strange that jquery uses yy for yyyy format!$% -->
 
 <!-- Generic Page Timemout
  Client side timeout management for the website.  There must be a serverside timeout to prevent some sorts of devious session theft.
@@ -43,8 +57,6 @@ var glogout;
  document.onmouseclick = resetTimer;
 </script>
 
-
-<?php echo $css; ?>
 
 <title><?php echo $title; ?></title>
 </head>
