@@ -1,0 +1,22 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+          "http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<Menu>
+  <Name>Applications</Name>
+         <!-- Community Banker -->
+         <Menu>
+            <Name>Community Banker</Name>
+              <Directory>community-banker.directory</Directory>
+              <Include>
+                 <And>
+                   <Category>CuBanker</Category>
+                 </And>
+                 <Filename>community-banker.desktop</Filename>
+                 <Filename>community-banker-bigbook.desktop</Filename>
+                 <Filename>community-banker-website.desktop</Filename>
+                 <Filename>community-banker-call-centre.desktop</Filename>
+                 <Filename>community-banker-internet-banking.desktop</Filename>
+                 <Filename>community-banker-branch.desktop</Filename>
+              </Include>
+          </Menu>
+          <!-- End Community Banker -->
+</Menu>

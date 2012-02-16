@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=0.0.1
+Encoding=UTF-8
+Name=Branch Login
+Comment=Community Banker Branch Login
+Exec='x-www-browser' http://localhost/branch
+Icon=community-banker-branch
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=Application;CuBanker;
+GenericName[en_ZA]=

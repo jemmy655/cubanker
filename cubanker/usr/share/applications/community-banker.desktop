@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.0.1
+Name=Control Panel
+Comment=Community Banker Control Panel
+Exec=/usr/bin/cubanker.sh
+Icon=community-banker-server
+Terminal=true
+Type=Application
+StartupNotify=false
+Categories=Application;CuBanker;

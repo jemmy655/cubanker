@@ -1,0 +1,51 @@
+.TH cubanker 1 "October 2010" "version 0.0.1" "Community Banker"
+.SH NAME
+cubanker - starts the Community Banker Control Panel
+.SH SYNOPSIS
+.B cubanker
+[\-Option]
+.SH DESCRIPTION
+.I cubanker.sh 
+runs a script which starts the control panel for 
+a Community Banker server. The entire solution consists of the many components that make up a typical LAMP solution. Detail documentation may be found in the 
+.B Big Book
+which is bundled with the cubanker installation.
+.SH OPTIONS
+.TP
+\--control-panel  {default behaviour}
+loads up the local Control Panel for cubanker configuration.  This is the only non-web based component of the solution.  For security reasons this will require
+.B sudo
+access to run.
+.TP
+\--restart
+restarts the essential services required for 
+.B cubanker
+such as apache, mysql etc.  This must be used with caution on a live implementation.
+.SH FILES
+.RS
+.RE
+.B Code Ignitor Application
+files are located in the /var/www/application directories.  PHP and CodeIgnitor are the primary technologies used to develop the solution.
+.RE
+.B MySql database
+script to initiate the database is located in /src/cubanker/mysql and is always distributed with the binary installation
+.RE
+.B The Big Book
+contains the User Guide, a template Operational Manual, Training Guide and the Developers Guide.  These are installed as one of the web based applications.
+.SH SOLUTION COMPONENTS
+The application instelf consists of three different portals, namely:
+.TP
+.B Call Centre 
+which allows call centre operators access to assist Users telephonically without compromising User data or other security protocols.
+.TP
+.B Branch
+access which allows branch staff (from a cleark to adminsitrator) role base access to branch and banking system configuration.
+.TP
+.B User
+access is the traditional Internet Banking style access for user access to day-to-day banking services.
+.SH AUTHOR
+The bank-builders team. (see www.launchpad.net)
+.SH SEE ALSO
+The Community Banker 
+.B Big Book  
+bundled with the cubanker installation.

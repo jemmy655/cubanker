@@ -1,0 +1,206 @@
+body {
+	font: 62.5% Arial, Helvetica, sans-serif;
+	color: #787878;
+	margin: 0;
+	padding: 0;
+	background: #ffffff;
+}
+
+
+h1, h2 {
+	color: #787878;
+	font-family: Tahoma, Arial, Geneva, sans-serif;
+	margin: 20px 0 10px;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+#clearview-table
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+	width: 480px;
+	border-collapse: collapse;
+	text-align: left
+	line-height: 1.6em;
+}
+#clearview-table th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#clearview-table td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+}
+#clearview-table tbody tr:hover td
+{
+	color: #009;
+}
+
+
+p {
+	margin: 10px 0;
+	padding: 0;
+}
+
+blockquote {
+	font-style: italic;	
+}
+
+
+#header-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow:auto;	
+}
+
+#header-container {
+	height: 90px;
+ 	background: url(../images/cubanker-clean-background.jpg) repeat-x left top;
+	/*background: #FFFFFF;*/
+}
+
+
+#header {
+	width: 940px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#header h1 {
+	color: #FFFFFF;
+	text-align: right;
+	width: 290px;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	top: 20px;
+}
+
+#header h1 em{
+	color: #66BB99;
+	font-size: small;
+	display: block;
+}
+
+#header ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	top: 35px;
+	right: 0;
+}
+
+#header ul li {
+	float: left;
+	margin-right: 5px;
+}
+
+#header ul li a{
+	color: #787878;
+	font-weight: bold;
+	font-size: 1.4em;
+	margin-right: 5px;
+	text-decoration: none;
+}
+
+#header ul li a:hover {
+	color: #e1e1e1;	
+}
+
+#container {
+	width: 940px;
+	margin: 0 250px auto;
+	font-size: 1.4em;
+	overflow: auto;
+	padding: 90px 0 40px;
+}
+
+#content {
+	float: left;
+	width: 675px;
+}
+
+#sidebar {
+	float: right;
+	width: 225px;
+	margin-top: 10px;
+}
+
+#leftsidebar {
+	position: fixed;
+	width: 210px;
+	margin-top: 90px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#leftsidebar td {
+	color: #787878;
+	font-weight: bold;
+	font-size: 1.4em;
+	text-decoration: none;
+}
+
+#leftsidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	left: 20px;
+	right: 0;
+}
+
+#leftsidebar ul li a{
+	color: #787878;
+	font-weight: bold;
+	font-size: 1.4em;
+	margin-right: 5px;
+	text-decoration: none;
+}
+
+#leftsidebar ul li a:hover {
+	color: #e1e1e1;	
+}
+
+
+
+#footer-wrap {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow:auto;	
+}
+
+#footer-container {
+	height: 40px;
+	background: url(../images/cubanker-clean-background.jpg) repeat-x left top;
+	/*background: #FFFFFF;*/
+}
+
+#footer {
+	width: 940px;
+	margin: 0 auto;
+	position: relative;
+	font: 1.25em Arial, Helvetica, sans-seri
+}
+
+#footer a {
+	color: #66BB99;
+	font-weight: bold;
+}
+

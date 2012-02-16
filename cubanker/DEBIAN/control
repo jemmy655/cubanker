@@ -1,0 +1,13 @@
+Package: cubanker
+Version: 0.0.1
+Section: web
+Priority: optional
+Architecture: i386
+Maintainer: Bank Builder <info@communitybanker.org>
+Description: This is the installer for Community Banker
+ .
+ This installer for Community Banker installs the web pages and the documentation URLs for the project.
+ At a later date it will install a control panel for configuration and dependencies.
+ .
+ Contact info@communitybanker.org to assist this project
+ 

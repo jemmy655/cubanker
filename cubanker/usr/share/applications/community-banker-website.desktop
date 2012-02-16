@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=0.0.1
+Encoding=UTF-8
+Name=Website
+Comment=Community Banker Web Site
+Exec=firefox http://www.communitybanker.org
+Icon=community-banker-web
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=Application;CuBanker;
