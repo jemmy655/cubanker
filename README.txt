@@ -21,10 +21,10 @@ Demo: http://cubanker.kicks-ass.org
 Wiki: www.communitybanker.org/big_book
 GitHub: https://github.com/Bank-Builder/cubanker
 
-Abandoned: https://launchpad.net/cu-banker
+Will eventually put ppa for Ubuntu installer here: https://launchpad.net/cu-banker
 ___________________________________________
 
-Building t6he source
+Building the source
 --------------------
 Stupid DropBox! keeps saying debian and DEBIAN are case-conflicting.  
 Therefore please rename _debian_ to debian before trying to use the doagain.sh script 

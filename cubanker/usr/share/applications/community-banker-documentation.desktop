@@ -3,7 +3,7 @@
 Version=0.0.1
 Name=Documentation
 Comment=Community Banker Documentation
-Exec='x-www-browser' /usr/lib/cu-banker/big_book/index.html
+Exec='x-www-browser' /usr/lib/cubanker/big_book/index.html
 Icon=community-banker-bigbook
 Terminal=false
 Type=Application
